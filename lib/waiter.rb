@@ -22,5 +22,11 @@ class Waiter
     Meal.all.select do |meal| meal.waiter == self 
     end 
   end 
+  
+  def best_tipper
+    tips = []
+    tips = meals.collect do |meal| meal.tip.sort end 
+    tips[-1].name 
+  end 
 
 end
